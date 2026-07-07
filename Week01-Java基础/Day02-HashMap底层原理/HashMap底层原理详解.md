@@ -94,6 +94,8 @@ static final int hash(Object key) {
 
 ### 2.3 tableSizeFor() 保证容量为2的幂次
 
+- JDK 8
+
 ```java
 static final int tableSizeFor(int cap) {
     int n = cap - 1;
@@ -109,6 +111,22 @@ static final int tableSizeFor(int cap) {
 **原理：** 通过无符号右移和或运算，将最高位1以下的所有位都置为1，再加1就得到大于等于cap的最小2的幂次。
 
 例如：`cap=10` → `n=9(0b1001)` → 一系列位运算后 `n=15(0b1111)` → 返回 `16`
+
+- JDK 11+
+
+```java
+/**
+ * Returns a power of two size for the given target capacity.
+ */
+static final int tableSizeFor(int cap) {
+    int n = -1 >>> Integer.numberOfLeadingZeros(cap - 1);
+    return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
+}
+```
+
+**原理：** 通过 `numberOfLeadingZeros` 算出前面有多少个 0，然后用 -1 右移同样多的位数，极其巧妙地在低位创造掩码（全 1），最后 +1 逆向进位，直接蜕变成 2 的幂次。
+
+> 新写法利用了 Integer.numberOfLeadingZeros。这个方法在现代 CPU 中通常直接对应一条 硬件级别的汇编指令（如 x86 架构下的 LZCNT 指令）。因此，新写法执行速度更快，使用的 CPU 周期更少，把对性能的压榨做到了极致。
 
 ---
 
