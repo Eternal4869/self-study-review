@@ -70,3 +70,6 @@ Thumbs.db
 *.tar.xz
 *.tar.zst
 ```
+
+# mimocode
+.mimocode/
