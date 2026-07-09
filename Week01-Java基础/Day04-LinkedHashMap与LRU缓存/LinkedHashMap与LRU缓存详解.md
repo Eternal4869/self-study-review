@@ -546,35 +546,44 @@ public class SoftReferenceDemo {
 import java.util.WeakHashMap;
 
 public class WeakHashMapDemo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         WeakHashMap<Object, String> map = new WeakHashMap<>();
         
-        // key是强引用
+        // key1和key2都是强引用，但放入WeakHashMap后会被包装成弱引用
         Object key1 = new Object();
-        map.put(key1, "value1");
-        
-        // key是弱引用
         Object key2 = new Object();
+        
+        map.put(key1, "value1");
         map.put(key2, "value2");
         
-        System.out.println(map.size());  // 2
+        System.out.println("初始大小: " + map.size());  // 2
         
-        // 将key1置为null（弱引用的key变为可回收）
+        // 将key1的强引用置为null，key1对应的entry可以被GC回收
         key1 = null;
         
+        // key2仍然有强引用持有，不会被回收
         // 触发GC
         System.gc();
         
-        // key1对应的条目已被回收
-        System.out.println(map.size());  // 0
+        // 等待GC完成
+        Thread.sleep(100);
+        
+        // key1对应的条目已被回收，key2还在
+        System.out.println("GC后大小: " + map.size());  // 1
+        
+        // 如果将key2也置为null，再次GC后所有entry都会被回收
+        key2 = null;
+        System.gc();
+        Thread.sleep(100);
+        System.out.println("全部置null后大小: " + map.size());  // 0
     }
 }
 ```
 
 **WeakHashMap的特点：**
-- Key是弱引用，GC时会被自动回收
+- Key是弱引用，当Key不再被外部强引用持有时，GC会自动回收该Key及其对应的entry
 - 适合做缓存（Key不再被使用时自动清理）
-- Value是强引用，不会被GC回收（可能导致内存泄漏）
+- Value是强引用，但如果Key被回收了，Value也会因为无法访问而被回收
 
 ---
 
