@@ -199,7 +199,7 @@ System.out.println("StringBuffer拼接耗时: " + (System.currentTimeMillis() - 
 > 答：主要区别在于线程安全性：
 > 1. **StringBuilder**：非线程安全，性能更高，适用于单线程环境
 > 2. **StringBuffer**：线程安全（方法使用synchronized修饰），适用于多线程环境
-> 3. 两者都继承自AbstractStringBuilder，底层都是char[]数组，扩容机制相同（1.5倍）
+> 3. 两者都继承自AbstractStringBuilder，底层都是 ~~char[]~~ byte[] 数组，扩容机制相同（1.5倍）
 
 ---
 
