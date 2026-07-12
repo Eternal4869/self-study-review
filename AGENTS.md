@@ -80,6 +80,7 @@ Week01-Java基础/
 - 使用 ASCII 图表展示数据结构
 - 章节间用 `---` 分隔线
 - 代码注释使用中文
+- LeetCode题目必须添加超链接，格式为：`[题号. 题目名称（难度）](https://leetcode.cn/problems/题目slug/)`
 - LeetCode题目使用中文链接
 
 ### 4. 生成流程
@@ -98,6 +99,7 @@ Week01-Java基础/
 - [ ] 代码块是否使用 ```java 标记
 - [ ] 是否包含LeetCode题目解析
 - [ ] 是否包含验收清单
+- [ ] LeetCode题目是否都添加了跳转超链接
 
 ---
 

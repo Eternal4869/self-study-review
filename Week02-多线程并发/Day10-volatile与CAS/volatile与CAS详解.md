@@ -453,7 +453,7 @@ public class SpinLock {
 
 ## 七、LeetCode题目解析
 
-### 7.1 1116. 打印零与奇偶数（Medium）
+### 7.1 [1116. 打印零与奇偶数（Medium）](https://leetcode.cn/problems/print-zero-even-odd/)
 
 **题目描述**：
 三个线程分别打印0、奇数、偶数，要求按0,1,0,2,0,3...的顺序输出。

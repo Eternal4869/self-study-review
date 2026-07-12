@@ -307,7 +307,7 @@ while (!cas(obj.markWord, null, lockRecord)) {
 
 ## 六、LeetCode题目解析
 
-### 6.1 1115. 交替打印FooBar（Medium）
+### 6.1 [1115. 交替打印FooBar（Medium）](https://leetcode.cn/problems/print-foobar-alternately/)
 
 **题目描述**：
 设计程序让两个线程交替打印 "foo" 和 "bar"。

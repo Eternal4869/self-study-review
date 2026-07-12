@@ -439,7 +439,7 @@ public class ProducerConsumer {
 
 ## 七、LeetCode题目解析
 
-### 7.1 1117. Building H2O（Medium）
+### 7.1 [1117. Building H2O（Medium）](https://leetcode.cn/problems/building-h2o/)
 
 **题目描述**：
 设计程序让线程按顺序产生H和O，最终生成H2O。需要2个H线程和1个O线程配合。

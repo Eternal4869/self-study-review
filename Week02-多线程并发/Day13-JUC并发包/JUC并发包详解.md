@@ -411,7 +411,7 @@ BlockingQueue<String> syncQueue = new SynchronousQueue<>();
 
 ## 六、LeetCode题目解析
 
-### 6.1 1195. Fizz Buzz Multithreaded（Medium）
+### 6.1 [1195. Fizz Buzz Multithreaded（Medium）](https://leetcode.cn/problems/fizz-buzz-multithreaded/)
 
 **题目描述**：
 四个线程分别打印"fizz"、"buzz"、"fizzbuzz"、数字，按规则输出。
