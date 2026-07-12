@@ -451,7 +451,6 @@ JDK 1.8优化：
 
 **问题1：HashMap和Hashtable的区别？**
 
-```
 答：
 | 特性 | HashMap | Hashtable |
 |------|---------|-----------|
@@ -465,7 +464,6 @@ JDK 1.8优化：
 - 线程安全Map：ConcurrentHashMap
 - 线程安全List：CopyOnWriteArrayList
 - 线程安全Set：CopyOnWriteArraySet
-```
 
 **问题2：ConcurrentHashMap可以放null值吗？为什么？**
 
