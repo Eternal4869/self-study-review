@@ -63,7 +63,7 @@ for (int i = 0; i < 5; i++) {
 }
 latch.await();  // 等待5个线程完成
 
-// 场景2：主线程等待子线程
+// 场景2：子线程等待主线程
 CountDownLatch startLatch = new CountDownLatch(1);
 for (int i = 0; i < 5; i++) {
     new Thread(() -> {
